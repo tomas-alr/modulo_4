@@ -1,9 +1,9 @@
 import Header from './Header';
 import CardPizza from './cards/CardPizza';
 import pizzas from './pizzas'; // Asegúrate de que la ruta sea correcta
-import './home.css'
+import './home.css';
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   return (
     <div>
       <Header />
@@ -16,6 +16,7 @@ const Home = () => {
             price={pizza.price}
             ingredients={pizza.ingredients}
             img={pizza.img}
+            addToCart={() => addToCart(pizza)} // Pasamos la función como prop
           />
         ))}
       </div>

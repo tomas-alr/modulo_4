@@ -1,11 +1,6 @@
-// Cart.jsx
-import React, { useState } from 'react';
-import pizzaCart from './pizzas'; // Asegúrate de que la ruta es correcta y que estás importando correctamente
+import React from 'react';
 
-const Cart = () => {
-  // Establecemos el estado del carrito usando pizzaCart
-  const [cart, setCart] = useState(pizzaCart.map(pizza => ({ ...pizza, quantity: 0 })));
-
+const Cart = ({ cart, setCart }) => {
   // Función para aumentar la cantidad de una pizza
   const increaseQuantity = (index) => {
     const updatedCart = [...cart];
@@ -33,7 +28,7 @@ const Cart = () => {
     <div>
       <h2>Carrito de Compras</h2>
       <div className="row">
-        {cart.filter(pizza => pizza.quantity > 0).map((pizza, index) => (
+        {cart.map((pizza, index) => (
           <div key={index} className="card" style={{ width: '18rem', margin: '10px' }}>
             <img src={pizza.img} className="card-img-top" alt={pizza.name} />
             <div className="card-body">
